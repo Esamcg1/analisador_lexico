@@ -1,11 +1,11 @@
-package  proyecto_1_analizador_lexico;
+package proyecto_1_analizador_lexico;
 import static proyecto_1_analizador_lexico.Tokens.*;
 
 %%
 %class Lexer
 %unicode
+%type Tokens
 
-//Se declaran las expresiones regulares que se usaran para los tokens
 L=[a-zA-Z_]+
 D=[0-9]+
 DECIMAL={D}+"."{D}+
@@ -18,41 +18,41 @@ espacio = [ ,\t,\r,\n]+
 
 %%
 
-//Operadores aritmenticos
+// Operadores aritméticos
 "+" {return Suma;}
 "-" {return Resta;}
 "*" {return Multiplicacion;}
 "/" {return Division;}
 "^" {return Potencia;}
 
-//Parensetis para expresiones algebraicas
-"(" {return Parensetis_Apertura;}
-")" {return Parensetis_Cierre;}
+// Paréntesis y corchetes
+"(" {return Parentesis_Apertura;}
+")" {return Parentesis_Cierre;}
 "[" {return Corchete_Apertura;}
 "]" {return Corchete_Cierre;}
 
-//Operaciones logicas
-"&&" {return And; }
+// Operadores lógicos
+"&&" {return And;}
 "||" {return Or;}
 "!" {return Not;}
 
-//Operadores relacionales
-"==" {return Igualdad; }
+// Operadores relacionales
+"==" {return Igualdad;}
 "!=" {return Diferente;}
 "<" {return Menor;}
 ">" {return Mayor;}
 "<=" {return MenorIgual;}
 ">=" {return MayorIgual;}
 
-//Palabras reservadas
+// Palabras clave lógicas
 "true" {return True;}
 "false" {return False;}
 
-//Variables
+// Variables
 {DECIMAL} {lexeme = yytext(); return NumeroDecimal;}
 {D}+ {lexeme = yytext(); return NumeroEntero;}
 {L}({L}|{D})* {lexeme = yytext(); return Identificador;}
 
-//No se toman en cuenta los espacios
-{espacio} {/*Ingnorar*/}
+// Ignorar espacios
+{espacio} {/* Ignorar */}
 . {return ERROR;}

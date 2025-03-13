@@ -7,26 +7,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Principal{
-    public static void main(String[] args){
+public class Principal {
+    public static void main(String[] args) {
         File archivoEntrada = new File("input.txt");
         File archivoSalida = new File("output.txt");
-        try{
+        try {
             BufferedReader lector = new BufferedReader(new FileReader(archivoEntrada));
             PrintWriter escritor = new PrintWriter(new FileWriter(archivoSalida));
 
             Lexer lexer = new Lexer(lector);
-            String = resultado = ""; 
+            String resultado = "";
 
-            while (true){
+            while (true) {
                 Tokens token = lexer.yylex();
-                if (token == null){
+                if (token == null) {
                     resultado += "FIN";
                     escritor.println(resultado);
                     System.out.println(resultado);
                     break;
                 }
-                switch (token){
+                switch (token) {
                     case ERROR:
                         resultado += "Error, simbolo no reconocido\n";
                         break;
@@ -45,9 +45,9 @@ public class Principal{
 
             escritor.close();
             lector.close();
-            System.out.println("Analisa Lexico completado, verificar archivo de salida :)");
-        }catch (Exception e){
-            System.out.println("Error al abrir el archivo" + e.getMessage());
+            System.out.println("Analisis Léxico completado, verificar archivo de salida :)");
+        } catch (Exception e) {
+            System.out.println("Error al abrir el archivo: " + e.getMessage());
         }
     }
 }
