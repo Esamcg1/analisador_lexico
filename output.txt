@@ -1,0 +1,29 @@
+10: Es un NumeroEntero
+Suma
+30: Es un NumeroEntero
+Error, simbolo no reconocido
+40: Es un NumeroEntero
+Parentesis_Apertura
+40: Es un True
+Or
+40: Es un False
+Parentesis_Cierre
+And
+Not
+40: Es un False
+x: Es un Identificador
+Error, simbolo no reconocido
+1: Es un NumeroEntero
+x: Es un Identificador
+Error, simbolo no reconocido
+x: Es un True
+12345: Es un NumeroEntero
+Suma
+12345: Es un NumeroEntero
+Multiplicacion
+Error, simbolo no reconocido
+Error, simbolo no reconocido
+Parentesis_Apertura
+Parentesis_Cierre
+abc: Es un Identificador
+FIN
