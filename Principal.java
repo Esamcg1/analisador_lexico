@@ -12,11 +12,12 @@ public class Principal{
         File archivoEntrada = new File("input.txt");
         File archivoSalida = new File("output.txt");
         try{
-            BufferedReader lecto = new BufferedReader(new FileReader(archivoEntrada));
+            BufferedReader lector = new BufferedReader(new FileReader(archivoEntrada));
             PrintWriter escritor = new PrintWriter(new FileWriter(archivoSalida));
 
-            Lexer lexer = new lexer(lector);
+            Lexer lexer = new Lexer(lector);
             String = resultado = ""; 
+
             while (true){
                 Tokens token = lexer.yylex();
                 if (token == null){
@@ -41,6 +42,7 @@ public class Principal{
                         break;
                 }
             }
+
             escritor.close();
             lector.close();
             System.out.println("Analisa Lexico completado, verificar archivo de salida :)");
